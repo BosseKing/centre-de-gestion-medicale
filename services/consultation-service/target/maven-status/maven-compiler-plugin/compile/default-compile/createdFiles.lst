@@ -1,0 +1,5 @@
+com\consultation\dao\ConsultationDAO.class
+com\consultation\model\Consultation.class
+com\consultation\util\DatabaseConnection.class
+com\consultation\client\ConsultationClient.class
+com\consultation\service\ConsultationService.class

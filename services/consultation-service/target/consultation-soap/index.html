@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service SOAP Consultation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .info-box {
+            background: #ecf0f1;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+        }
+        .endpoint {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        .operations {
+            list-style: none;
+            padding: 0;
+        }
+        .operations li {
+            background: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-left: 3px solid #27ae60;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success {
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 Service Web SOAP - Gestion des Consultations</h1>
+        
+        <div class="info-box">
+            <p><strong>Statut:</strong> <span class="success">✓ Service actif</span></p>
+            <p><strong>Version:</strong> 1.0.0</p>
+            <p><strong>Protocole:</strong> SOAP/XML</p>
+        </div>
+
+        <h2>📍 Points d'accès (Endpoints)</h2>
+        
+        <p><strong>WSDL:</strong></p>
+        <div class="endpoint">
+            http://localhost:8080/consultation-soap/services/consultation?wsdl
+        </div>
+
+        <p><strong>Endpoint du service:</strong></p>
+        <div class="endpoint">
+            http://localhost:8080/consultation-soap/services/consultation
+        </div>
+
+        <h2>🔧 Opérations disponibles</h2>
+        
+        <ul class="operations">
+            <li><strong>creerConsultation</strong> - Créer une nouvelle consultation</li>
+            <li><strong>obtenirConsultation</strong> - Obtenir une consultation par ID</li>
+            <li><strong>obtenirToutesConsultations</strong> - Lister toutes les consultations</li>
+            <li><strong>obtenirConsultationsParPatient</strong> - Lister par patient</li>
+            <li><strong>obtenirConsultationsParMedecin</strong> - Lister par médecin</li>
+            <li><strong>modifierConsultation</strong> - Modifier une consultation</li>
+            <li><strong>supprimerConsultation</strong> - Supprimer une consultation</li>
+            <li><strong>testerConnexion</strong> - Tester la connexion à la base</li>
+        </ul>
+
+        <h2>📝 Exemple de requête SOAP</h2>
+        
+        <p>Créer une consultation:</p>
+        <div class="code-block">
+&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+                  xmlns:ser="http://service.consultation.com/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ser:creerConsultation&gt;
+         &lt;patientId&gt;PAT-005&lt;/patientId&gt;
+         &lt;medecinId&gt;MED-001&lt;/medecinId&gt;
+         &lt;dateConsultation&gt;2025-01-20&lt;/dateConsultation&gt;
+         &lt;heureConsultation&gt;14:30:00&lt;/heureConsultation&gt;
+         &lt;motif&gt;Consultation de suivi&lt;/motif&gt;
+         &lt;notes&gt;Tout va bien&lt;/notes&gt;
+      &lt;/ser:creerConsultation&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+        </div>
+
+        <h2>🛠️ Outils de test</h2>
+        <ul>
+            <li><strong>SoapUI</strong> - Client SOAP professionnel</li>
+            <li><strong>Postman</strong> - Support SOAP intégré</li>
+            <li><strong>curl</strong> - En ligne de commande</li>
+        </ul>
+
+        <h2>📊 Base de données</h2>
+        <div class="info-box">
+            <p><strong>Serveur:</strong> localhost:3306</p>
+            <p><strong>Base:</strong> consultation_db</p>
+            <p><strong>Table:</strong> consultation</p>
+        </div>
+    </div>
+</body>
+</html>
