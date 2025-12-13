@@ -1,0 +1,45 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: email-service
+  
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: israamejri304@gmail.com
+    password: suboamkrilfojdcv
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          timeout: 5000
+          connectiontimeout: 5000
+          writetimeout: 5000
+    
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+
+email:
+  service:
+    default-from-name: "Système Médical"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    com.medical.emailservice: DEBUG
+    org.springframework.mail: DEBUG
